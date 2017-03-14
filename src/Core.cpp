@@ -9,48 +9,56 @@
 
 const std::string trade::Core::calc()
 {
-    size_t nbAction;
     std::string nbstr;
     std::stringstream ss;
+    size_t newAction;
 
-    nbAction = determineNbAction();
-    ss << nbAction;
-    nbstr = ss.str();
-    if (getAverageMax == getAverageMin || !nbAction)
+    if (dayCount == DayMax)
+    {
+        if (nbAction)
+        {
+            ss << nbAction;
+            nbstr = ss.str();
+            Capital += nbAction * curValue - ((nbAction * curValue * 0.15) / 100.0);
+            return "sell " + nbstr;
+        }
+        return "wait";
+    }
+    if (getAverageMax == getAverageMin)
         return "wait";
     else if (getAverageMin < getAverageMax)
     {
-        if (isSell || !isBuy)
+        if (!nbAction)
             return "wait";
-        isSell = true;
-        isBuy = false;
+        ss << nbAction;
+        nbstr = ss.str();
         Capital += nbAction * curValue - ((nbAction * curValue * 0.15) / 100.0);
+        nbAction = 0;
         return "sell " + nbstr;
     }
     else
     {
-        if (isBuy)
+        newAction = determineNbAction();
+        if (!newAction)
             return "wait";
-        isSell = false;
-        isBuy = true;
-        Capital -= nbAction * curValue + ((nbAction * curValue * 0.15) / 100.0);
+        nbAction += newAction;
+        ss << newAction;
+        nbstr = ss.str();
+        Capital -= newAction * curValue + ((newAction * curValue * 0.15) / 100.0);
         return "buy " + nbstr;
     }
 }
 
-trade::Core::Core()
-{
-}
-
 trade::Core::Core(double capital, int dayMAx) : Capital(capital), DayMax(dayMAx)
 {
-    isSell = false;
-    isBuy = false;
+    nbAction = 0;
+    dayCount = 0;
 }
 
 void trade::Core::feedValue(double value)
 {
     curValue = value;
+    dayCount++;
 }
 
 void trade::Core::feedAverageMax(double value)

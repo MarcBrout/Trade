@@ -14,12 +14,12 @@ namespace trade
     private:
         double Capital;
         int DayMax;
+        int dayCount;
+        size_t nbAction;
         double getAverageMax;
         double getAverageMin;
         double curValue;
-        bool isSell;
-        bool isBuy;
-        Core();
+        Core() = delete;
 
         size_t determineNbAction();
     public:

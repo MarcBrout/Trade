@@ -9,7 +9,11 @@ int main()
 {
     trade::Com com;
     double value;
+    double capital;
+    double totalDay;
 
+    capital = com.get();
+    totalDay = com.get();
     while ((value = com.get()) >= 0)
     {
         com.put("wait");

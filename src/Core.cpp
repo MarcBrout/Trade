@@ -7,7 +7,7 @@
 #include <iostream>
 #include <sstream>
 
-const std::string &trade::Core::calc()
+const std::string trade::Core::calc()
 {
     size_t nbAction;
     std::string nbstr;

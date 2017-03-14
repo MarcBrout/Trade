@@ -24,7 +24,7 @@ namespace trade
         size_t determineNbAction();
     public:
         Core(double capital, int dayMAx);
-        const std::string &calc();
+        const std::string calc();
         void feedValue(double value);
         void feedAverageMax(double value);
         void feedAverageMin(double value);

@@ -13,7 +13,7 @@ namespace trade
     {
     public:
         virtual ~ICore(){};
-        virtual std::string const &calc() = 0;
+        virtual std::string const calc() = 0;
     };
 }
 

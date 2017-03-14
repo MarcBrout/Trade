@@ -39,6 +39,12 @@ void trade::Curve::feed(double value) {
 
     std::for_each(averages.begin(), averages.end(), [this](pair_t &avg){ avg.second = updateAverage(avg.first); });
     std::for_each(rsi.begin(), rsi.end(), [this](pair_t &_rsi){ _rsi.second = updateRSI(_rsi.first); });
+    std::for_each(exponentials.begin(), exponentials.end(), [this](pairExpo_t &expo)
+    {
+        std::for_each(expo.second.begin(), expo.second.end(), [&expo, this](pair_t &exp) {
+        exp.second = updateExponential(expo.first, exp.first);
+    });
+    });
 }
 
 double trade::Curve::updateAverage(size_t period) {

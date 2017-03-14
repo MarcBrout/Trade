@@ -3,6 +3,7 @@
 //
 
 #include <iostream>
+#include <fstream>
 #include "Com.hh"
 #include "Curve.hh"
 #include "Core.hpp"

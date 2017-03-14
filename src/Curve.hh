@@ -16,6 +16,7 @@ namespace trade
     public:
         typedef std::map<size_t, double> avg_t;
         typedef std::pair<size_t const, double> pair_t;
+        typedef std::pair<size_t const, avg_t> pairExpo_t;
         typedef std::map<size_t, avg_t > expo_t;
 
     public:

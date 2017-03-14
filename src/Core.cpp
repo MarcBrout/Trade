@@ -20,7 +20,7 @@ const std::string trade::Core::calc()
         return "wait";
     else if (getAverageMin < getAverageMax)
     {
-        if (isSell)
+        if (isSell || !isBuy)
             return "wait";
         isSell = true;
         isBuy = false;

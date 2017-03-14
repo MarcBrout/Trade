@@ -14,5 +14,5 @@ set(SOURCE_FILES
         src/trade.cpp
         src/trade.cpp
         src/Core.cpp
-        src/Core.hpp)
+        src/Core.hpp src/testAverage.cpp)
 add_executable(trade ${SOURCE_FILES})

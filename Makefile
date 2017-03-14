@@ -5,7 +5,7 @@
 ## Login   <marc.brout@epitech.eu>
 ##
 ## Started on  Mon Jan 23 13:38:11 2017 Brout
-## Last update Mon Mar 13 16:08:32 2017 brout_m
+## Last update Tue Mar 14 14:59:41 2017 duhieu_b
 ##
 
 MAKE_DIR=	./
@@ -15,7 +15,9 @@ NAME=		trade
 SRC_DIR=	./src/
 
 SRC_FILES=	trade.cpp \
-			Com.cpp
+		Curve.cpp \
+		Core.cpp \
+		Com.cpp
 
 SRC= 		$(addprefix $(SRC_DIR), $(SRC_FILES))
 

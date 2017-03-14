@@ -44,6 +44,8 @@ trade::Core::Core()
 
 trade::Core::Core(double capital, int dayMAx) : Capital(capital), DayMax(dayMAx)
 {
+    isSell = false;
+    isBuy = false;
 }
 
 void trade::Core::feedValue(double value)

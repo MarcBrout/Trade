@@ -52,7 +52,6 @@ double trade::Curve::updateAverage(size_t period) {
     double count;
 
     avg = count = 0;
-
     while (count < period && count < values.size())
     {
         avg += values[count];

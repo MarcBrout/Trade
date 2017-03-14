@@ -14,16 +14,19 @@ namespace trade
     class Curve : public ICurve
     {
     public:
+        typedef std::map<size_t, double> avg_t;
+
+    public:
         ~Curve(){};
         double getAverage(size_t period);
         void feed(double value);
 
     private:
-        std::map<size_t, double > averages;
+        avg_t averages;
         std::deque<double> values;
 
     private:
-        void updateAverage(size_t period, double &average);
+        double updateAverage(size_t period);
     };
 }
 

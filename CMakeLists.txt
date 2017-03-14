@@ -11,5 +11,5 @@ set(SOURCE_FILES
         src/Curve.hh
         src/Com.cpp
         src/Com.hh
-        src/trade.cpp src/trade.cpp)
+        src/trade.cpp src/trade.cpp src/Core.cpp src/Core.hpp)
 add_executable(trade ${SOURCE_FILES})

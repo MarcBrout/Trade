@@ -37,8 +37,8 @@ double trade::Curve::getExponential(size_t period, size_t pow) {
 void trade::Curve::feed(double value) {
     values.push_front(value);
 
-    std::for_each(averages.begin(), averages.end(), [](pair_t &avg){ avg.second = updateAverage(avg.first); });
-    std::for_each(rsi.begin(), rsi.end(), [](pair_t &_rsi){ _rsi.second = updateRSI(_rsi.first); });
+    std::for_each(averages.begin(), averages.end(), [this](pair_t &avg){ avg.second = updateAverage(avg.first); });
+    std::for_each(rsi.begin(), rsi.end(), [this](pair_t &_rsi){ _rsi.second = updateRSI(_rsi.first); });
 }
 
 double trade::Curve::updateAverage(size_t period) {
@@ -56,8 +56,8 @@ double trade::Curve::updateAverage(size_t period) {
 }
 
 double trade::Curve::updateRSI(size_t period) {
-    std::vector low;
-    std::vector high;
+    std::vector<double> low;
+    std::vector<double> high;
     double avg, highAvg, lowAvg;
     int count;
 

@@ -85,19 +85,17 @@ size_t trade::Core::determineNbAction()
 {
     size_t nb;
 
-    if (curValue > Capital + ((curValue * 0.15) / 100.0))
+    if (curValue > Capital - ((curValue * 0.15) / 100.0))
     {
         return (0);
-    }
-    else if (curValue > ((Capital / 10.0) * 2.0) + ((2.0 * curValue * 0.15) / 100.0))
-    {
-        return (1);
     }
     else
     {
         nb = 1;
-        while (curValue * nb < ((Capital / 10.0) * 2.0) + ((nb * curValue * 0.15) / 100.0))
+        while (curValue * nb < ((Capital / 10.0) * 2.0) - ((nb * curValue * 0.15) / 100.0))
             nb++;
+        if ((Capital - ((nb + 1) * curValue + (((nb + 1) * curValue * 0.15) / 100.0))) <= 0)
+            return (0);
         return (nb);
     }
 }

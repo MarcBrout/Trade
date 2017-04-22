@@ -27,8 +27,9 @@ int main()
     {
         curve.feed(value);
         core.feedValue(value);
-        core.feedAverageMax(curve.getAverage(moyMin));
-        core.feedAverageMin(curve.getAverage(moyMax));
+        core.feedAverage(curve.getAverage(9));
+        core.feedAverageMax(curve.getAverage(moyMax));
+        core.feedAverageMin(curve.getAverage(moyMin));
         com.put(core.calc());
     }
     return (0);

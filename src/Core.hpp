@@ -18,7 +18,10 @@ namespace trade
         size_t nbAction;
         double getAverageMax;
         double getAverageMin;
+        double getAverage;
         double curValue;
+        double maxValue;
+        size_t dayLow;
         Core() = delete;
 
         size_t determineNbAction();
@@ -26,6 +29,7 @@ namespace trade
         Core(double capital, int dayMAx);
         const std::string calc();
         void feedValue(double value);
+        void feedAverage(double value);
         void feedAverageMax(double value);
         void feedAverageMin(double value);
         size_t moyMax();

@@ -13,7 +13,6 @@ const std::string trade::Core::calc()
     std::stringstream ss;
     size_t newAction;
 
-    //std::cerr << "Get average MIN : " << getAverageMin << " Get average max : " << getAverageMax << std::endl;
     if (dayCount == DayMax)
     {
         if (nbAction)
@@ -27,7 +26,8 @@ const std::string trade::Core::calc()
     }
     if (getAverageMax == getAverageMin)
         return "wait";
-    else if (getAverageMin > getAverageMax || curValue < maxValue * (0.75 + (((dayLow > 20) ? 20.0 : static_cast<double>(dayLow)) / 100.0)))
+    else if (getAverageMin > getAverageMax || curValue < maxValue * (0.75 + (((dayLow > 20) ? 20.0 :
+                                                                             static_cast<double>(dayLow)) / 100.0)))
     {
         dayLow++;
         if (!nbAction)
@@ -42,7 +42,7 @@ const std::string trade::Core::calc()
     else
     {
         newAction = determineNbAction();
-        dayLow /= 2;
+        dayLow -= 3;
         if (!newAction)
             return "wait";
         nbAction += newAction;
